@@ -1,0 +1,3 @@
+{
+"presets": ["latest", "babel-preset-react"]
+}

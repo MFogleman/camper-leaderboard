@@ -1,0 +1,30 @@
+{
+  "name": "camper-leaderboard",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build":"browserify src/index.js -t babelify -o build/index.js"
+
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MFogleman/camper-leaderboard.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MFogleman/camper-leaderboard/issues"
+  },
+  "homepage": "https://github.com/MFogleman/camper-leaderboard#readme",
+  "devDependencies": {
+    "babel-preset-latest": "^6.16.0",
+    "babel-preset-react": "^6.16.0",
+    "babelify": "^7.3.0",
+    "react-scripts": "^0.7.0"
+  },
+  "dependencies": {
+    "react": "^15.4.0",
+    "react-dom": "^15.4.0"
+  }
+}
