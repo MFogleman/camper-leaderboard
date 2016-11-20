@@ -2,6 +2,71 @@
 $FCCGreen: #006400;
 $FCCBlue: #31708F;
 $FCCBlack: #333333;
+$FCCLightBlue: #d9edf7;
+*{
+	box-sizing:border-box;
+	margin:0;
+	padding:0;
+	font-family: sans-serif;
+}
 
-body {
+
+.card{
+	height:400px;
+	width:300px;
+	background-color:#FFF;
+}
+
+.photocontainer{
+	height:200px;
+	box-shadow: inset 0px 0px 200px 2px #333;
+	position:relative;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+}
+
+.photocontainer img{
+	margin: 0;
+	position:absolute;
+	top:50%;
+	left:50%;
+	margin-right: -50%;
+	transform: translate(-50%, -50%);
+	overflow: hidden;
+}
+
+.footer{
+	height:225px;
+	position:relative;
+	display:block;
+	background-color: $FCCGreen;
+}
+p{
+	color: white;
+	margin-top:7.5%;
+	width:40%;
+	position:absolute;
+	display:inline-block;
+	text-align:center;
+	background-color: $FCCBlue;
+	border-radius: 3px;
+	box-shadow: 0px 0px 10px 2px $FCCBlack;
+	hidden:overflow;
+
+}
+p.alltime{
+	left:5%;
+}
+p.recent{
+	right:5%;
+}
+p.username{
+	color:white;
+	width:80%;
+	left:10%;
+	margin: 0 auto;
+	font-size:2em;
+	margin-top:35%;
+	float:left;
+	vertical-align:middle;
 }

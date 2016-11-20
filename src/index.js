@@ -1,29 +1,46 @@
-import React from 'react';
+import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
+import Photo from './comp/photo';
+import Footer from './comp/footer';
 
-/*
-API is an array of objects, example below.
-[
-	{
-		"username":"sjames1958gm",
-		"img":"https://avatars.githubusercontent.com/u/4639625?v=3",
-		"alltime":4089,
-		"recent":510,
-		"lastUpdate":"2016-11-19T00:05:55.438Z"
-	},
-]
-*/
+const testObj = {
+		username: 'sjames1958gm',
+		img: 'https://avatars.githubusercontent.com/u/4639625?v=3',
+		alltime: 4089,
+		recent: 510,
+		lastUpdate: '2016-11-19T00:05:55.438Z'
+	};
 
-class Test extends React.Component {
+class Card extends Component {
 	render() {
 		return (
-			<div>
-				<h1>Testing Dev Config</h1>
+			<div className='card'>
+				<Photo
+					img={this.props.img}
+				/>
+				<Footer
+					alltime={this.props.alltime}
+					recent={this.props.recent}
+					username={this.props.username}
+				/>
 			</div>
 		);
 	}
 }
 ReactDOM.render(
-  <Test />,
-  document.getElementById('root'),
+	<Card
+		alltime = {testObj.alltime}
+		img = {testObj.img}
+		recent = {testObj.recent}
+		username = {testObj.username}
+	/>,
+	document.getElementById('root'),
+
 );
+
+Card.propTypes = {
+	alltime: React.PropTypes.number,
+	img: React.PropTypes.string,
+	recent: React.PropTypes.number,
+	username: React.PropTypes.string
+};
