@@ -1,46 +1,49 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import Photo from './comp/photo';
-import Footer from './comp/footer';
+import 'whatwg-fetch';
 
-const testObj = {
-		username: 'sjames1958gm',
-		img: 'https://avatars.githubusercontent.com/u/4639625?v=3',
-		alltime: 4089,
-		recent: 510,
-		lastUpdate: '2016-11-19T00:05:55.438Z'
-	};
+const allTime = 'https://fcctop100.herokuapp.com/api/fccusers/top/alltime';
 
-class Card extends Component {
+fetch(allTime)
+	.then(function(response) {
+		return response.json();
+	}).then(function(json) {
+		var rows = json.map( (obj) => {
+			return	<tr key={obj.username}><td><img src={obj.img} /></td><td>{obj.username}</td><td>{obj.recent}</td><td>{obj.alltime}</td></tr>;
+		});
+		ReactDOM.render(
+			<Chart obj={rows}/>,
+		document.getElementById('root'),
+);
+	}).catch(function(ex) {
+		console.log('parsing failed', ex);
+  });
+
+class Chart extends Component {
+	constructor(props) {
+		super(props);
+		this.state = {mode: 'recent'};
+	}
 	render() {
 		return (
-			<div className='card'>
-				<Photo
-					img={this.props.img}
-				/>
-				<Footer
-					alltime={this.props.alltime}
-					recent={this.props.recent}
-					username={this.props.username}
-				/>
+			<div>
+			<div className='Banner'>
+				<h1>Camper Leaderboard</h1>
+			</div>
+			<table>
+				<thead id='chartHead'>
+					<tr><td>User</td><td></td><td>Most Recent</td><td>All Time</td></tr>
+				</thead>
+				<tbody>
+					{this.props.obj}
+				</tbody>
+			</table>
 			</div>
 		);
 	}
 }
-ReactDOM.render(
-	<Card
-		alltime = {testObj.alltime}
-		img = {testObj.img}
-		recent = {testObj.recent}
-		username = {testObj.username}
-	/>,
-	document.getElementById('root'),
 
-);
 
-Card.propTypes = {
-	alltime: React.PropTypes.number,
-	img: React.PropTypes.string,
-	recent: React.PropTypes.number,
-	username: React.PropTypes.string
+Chart.propTypes = {
+obj: React.PropTypes.array
 };
