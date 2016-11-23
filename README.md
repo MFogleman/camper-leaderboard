@@ -21,4 +21,4 @@
 
 ## Design 
 
-~As opposed to a column and row layout the example uses, this will be a user-card system.  Each card will have the user's logo, and below that a footer with their username, last 30 day score, and all time score.~ The user images range in size from around 120x120 to 460x460.  Trying to make user cards with a tiny picture like that isn't super practical.  The list will be laid out in a table using a similar color theme and design as [FreeCodeCamp](https://www.freecodecamp.com).
+~~As opposed to a column and row layout the example uses, this will be a user-card system.  Each card will have the user's logo, and below that a footer with their username, last 30 day score, and all time score.~~ The user images range in size from around 120x120 to 460x460.  Trying to make user cards with a tiny picture like that isn't super practical.  The list will be laid out in a table using a similar color theme and design as [FreeCodeCamp](https://www.freecodecamp.com).

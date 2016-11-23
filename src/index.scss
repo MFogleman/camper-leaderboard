@@ -47,7 +47,8 @@ thead#chartHead tr td{
 
 thead#chartHead tr{
 	border-top-color: white;
-	border-bottom-color: #dddddd
+	border-bottom-color: #dddddd;
+	cursor:default;
 }
 div.Banner{
 	margin:0 auto;
@@ -60,6 +61,7 @@ div.Banner{
 	width:100%;
 }
 
-tr:hover{
-	background-color:#D9EDF7
+.userRow:hover{
+	background-color:#D9EDF7;
+	cursor:pointer;
 }
