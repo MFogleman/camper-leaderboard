@@ -3,6 +3,8 @@ $FCCGreen: #006400;
 $FCCBlue: #31708F;
 $FCCBlack: #333333;
 $FCCLightBlue: #d9edf7;
+
+
 *{
 	box-sizing:border-box;
 	margin:0;
@@ -16,7 +18,7 @@ table {
 	border-color:solid 1px;
 	border-collapse: collapse;
 	border-radius:15px;
-	margin-top:10%;
+	margin-top:100px;
 
 }
 table tr{
@@ -113,4 +115,15 @@ div.Banner{
 
 #alltime {
 	background-color: #D9EDF7;
+}
+
+@media (max-width: 400px) {
+	.Banner #Nav{
+		color:red;
+		display:none;
+	}
+	table {
+		margin-top: 75px;
+	}
+
 }
