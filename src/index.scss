@@ -16,7 +16,8 @@ table {
 	border-color:solid 1px;
 	border-collapse: collapse;
 	border-radius:15px;
-	margin-top:7.5%;
+	margin-top:10%;
+
 }
 table tr{
 	border:solid 1px white;
@@ -27,6 +28,7 @@ td {
 	color: darkgreen;
 	font-weight: bold;
 	padding:.25em;
+	text-align:center;
 }
 table img{
 
@@ -42,7 +44,9 @@ thead#chartHead tr td{
 	background-color: white;
 	color: $FCCBlack;
 	font-size:1.5em;
-	border-bottom-color: #dddddd
+	border-bottom-color: #dddddd;
+	border-top-left-radius: 15px;
+	border-top-right-radius:15px;
 }
 
 thead#chartHead tr{
@@ -52,16 +56,57 @@ thead#chartHead tr{
 }
 div.Banner{
 	margin:0 auto;
+	padding-top:0px;
+	padding-bottom:0px;
 	background-color:darkgreen;
 	color:white;
 	position:fixed;
-	text-align:center;
+	height:50px;
 	display:aboslute;
 	top:0;
 	width:100%;
+	padding-left:30px;
+	padding-right:30px;
+	color:#eeeeee
+}
+.Banner #Logo{
+	margin-top:5px;
+	display:inline;
+	height:40px;
+	text-align:left;
+	padding-top:5px;
+	padding-bottom:5px;
+	vertical-align: middle;
+	font-weight:100;
+	cursor:pointer;
+}
+
+.Banner #Nav{
+	display:inline;
+	height:100%;
+	float:right;
+	font-weight: bold;	
+	text-align:right;
+	font-size:20px;
+	padding: 15px;
+	vertical-align: middle;
+	cursor:pointer;
+}
+
+.Banner #Nav:hover{
+	background-color:#EEEEEE;
+	color: darkgreen;
 }
 
 .userRow:hover{
 	background-color:#D9EDF7;
+	cursor:pointer;
+}
+
+.selectedSetting{
+	background-color:#D9EDF7;
+}
+
+#recent, #allTime {
 	cursor:pointer;
 }

@@ -5,11 +5,23 @@ import Chart from './chart.js';
 class App extends Component {
 	constructor(props) {
 		super(props);
-		this.state = {mode: 'allTime'};
 	}
 	render() {
 		return (
-			<Chart words={this.state.mode} />
+			<div id='Wrapper'>
+				<div className='Banner'>
+					<img
+						id='Logo'
+						onClick={ () =>{
+							window.open('https://freecodecamp.com/about', '_blank');
+						} }
+						src='./freeCodeCampLogo.svg'
+					/>
+					<p id='Nav'>About</p>
+				</div>
+			<Chart />
+
+			</div>
 		);
 	}
 }
@@ -19,6 +31,3 @@ ReactDOM.render(
 	document.getElementById('root'),
 );
 
-App.propTypes = {
-mode: React.PropTypes.string
-};

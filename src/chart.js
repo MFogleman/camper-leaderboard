@@ -9,7 +9,7 @@ export default class Chart extends Component {
 		super(props);
 		this.state = {
 			receivedData: [],
-			mode: allTime
+			firstRun: true
 		};
 		this.buildRows = this.buildRows.bind(this);
 		this.callAPI = this.callAPI.bind(this);
@@ -18,31 +18,53 @@ export default class Chart extends Component {
 	}
 
 	makeRecent() {
-		this.setState({mode: recent});
-		this.callAPI(recent);
+		document.getElementById('recent').style.backgroundColor = '#D9EDF7';
+		document.getElementById('allTime').style.backgroundColor = '#FFFFFF';
 	}
 
 	makeAllTime() {
-		this.setState({mode: allTime});
-		this.callAPI(allTime);
+		document.getElementById('allTime').style.backgroundColor = '#D9EDF7';
+		document.getElementById('recent').style.backgroundColor = '#FFFFFF';
 	}
-	callAPI(mode) {
-		console.log('API called with ', mode);
+	callAPI(endPoint) {
+		// _this is bound to this so that it can be passed to the fetch promise.
+
 		var _this = this;
-		fetch(mode)
+		if (_this.state.firstRun === false) {
+			// The components will be refactored.  Until then we cant add the
+			// highlight effects to 'Recent' and 'All Time' until it is created
+			// If it has been created we highlight the button on click, before
+			// the api call so that the user has instant feedback, instead of
+			// waiting for the api call to finish.
+			if (endPoint === allTime) {
+				_this.makeAllTime();
+			} else {
+				_this.makeRecent();
+			}
+		}
+		fetch(endPoint)
 			.then(function(response) {
 				return response.json();
 			}).then(function(json) {
 				_this.setState({
+					// Saved the returned data to State.
 					receivedData: json
 				});
+				if (_this.state.firstRun === true) {
+					// On the initial API call, note it was successful and
+					// make the inital highlight
+					_this.setState({
+						firstRun: false
+					});
+					_this.makeAllTime();
+				}
 			}).catch(function(ex) {
 			console.log('parsing failed', ex);
 		});
 	}
 
 	componentWillMount() {
-		this.callAPI(this.state.mode);
+		this.callAPI(allTime);
 	}
 
 	handleLink() {
@@ -55,7 +77,9 @@ export default class Chart extends Component {
 				<tr
 				className='userRow'
 				key={obj.username}
-				onClick={this.handleLink.bind(obj.username)}
+				onClick={() => {
+					window.open('https://freecodecamp.com/' + obj.username, '_blank');
+				} }
 				>
 					<td><img src={obj.img} /></td>
 					<td>{obj.username}</td><td>{obj.recent}</td>
@@ -73,13 +97,13 @@ export default class Chart extends Component {
 							<td>User</td>
 							<td />
 							<td
-								id='#recent'
-								onClick={this.makeRecent}
+								id='recent'
+								onClick={() => {this.callAPI(recent);} }
 								>Most Recent
 							</td>
 							<td
-								id='#allTime'
-								onClick={this.makeAllTime}
+								id='allTime'
+								onClick={() => {this.callAPI(allTime);} }
 								>All Time
 							</td>
 						</tr>
