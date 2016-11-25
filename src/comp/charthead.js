@@ -5,17 +5,18 @@ export default class Charthead extends Component {
 		return (
 			<thead id='chartHead'>
 				<tr>
-					<td>User</td>
+					<td>Rank</td>
 					<td />
+					<td>Camper Name</td>
 					<td
 						id='recent'
 						onClick={() => {this.props.callAPI(this.props.recent);} }
-						>Most Recent
+						>Recent Score
 					</td>
 					<td
 						id='allTime'
 						onClick={() => {this.props.callAPI(this.props.allTime);} }
-						>All Time
+						>All Time Score
 					</td>
 				</tr>
 			</thead>

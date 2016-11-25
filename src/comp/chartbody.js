@@ -7,7 +7,7 @@ export default class Chartbody extends Component {
 	}
 
 	buildRows(data) {
-		return data.map( (obj) => {
+		return data.map( (obj, index) => {
 			return (
 				<tr
 				className='userRow'
@@ -16,6 +16,7 @@ export default class Chartbody extends Component {
 					window.open('https://freecodecamp.com/' + obj.username, '_blank');
 				} }
 				>
+					<td>{index + 1}</td>
 					<td><img src={obj.img} /></td>
 					<td>{obj.username}</td><td>{obj.recent}</td>
 					<td>{obj.alltime}</td>
