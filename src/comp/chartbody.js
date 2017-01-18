@@ -5,7 +5,12 @@ export default class Chartbody extends Component {
 		super(props);
 		this.buildRows = this.buildRows.bind(this);
 	}
-
+/**
+ * Takes the data from state to populate the rows
+ * @param  {Array} data Either state.allTimeData or state.recentData
+ * @return {Jsx}      Returns a table row that links to the user's FCC page.  The
+ * cells are the rank, user image, user name, recent score, and all time score.
+ */
 	buildRows(data) {
 		return data.map( (obj, index) => {
 			return (
@@ -26,13 +31,23 @@ export default class Chartbody extends Component {
 	}
 
 	render() {
+		let rowContent = null;
+
+		if (this.props.mode === 'allTime') {
+			rowContent = this.buildRows(this.props.allTimeData);
+		} else {
+			rowContent = this.buildRows(this.props.recentData);
+		}
+
 		return (
 			<tbody>
-				{this.buildRows(this.props.receivedData)}
+				{rowContent}
 			</tbody>
 		);
 	}
 }
 Chartbody.propTypes = {
-	receivedData: React.PropTypes.array
+	allTimeData: React.PropTypes.array,
+	mode: React.PropTypes.string,
+	recentData: React.PropTypes.array
 };

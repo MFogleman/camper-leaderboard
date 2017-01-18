@@ -1,4 +1,7 @@
 # Camper Leaderboard
+
+Final project visible at [https://MFogleman.com](https://www.mfogleman.com/FCC/camper_leaderboard/)
+
 ## A [FreeCodeCamp](https://www.freecodecamp.com) project
 
 **Objective**: Build a CodePen.io app that is functionally similar to this: https://codepen.io/FreeCodeCamp/full/eZGMjp/.
@@ -21,4 +24,14 @@
 
 ## Design 
 
-~~As opposed to a column and row layout the example uses, this will be a user-card system.  Each card will have the user's logo, and below that a footer with their username, last 30 day score, and all time score.~~ The user images range in size from around 120x120 to 460x460.  Trying to make user cards with a tiny picture like that isn't super practical.  The list will be laid out in a table using a similar color theme and design as [FreeCodeCamp](https://www.freecodecamp.com).
+~~As opposed to a column and row layout the example uses, this will be a user-card system.  Each card will have the user's logo, and below that a footer with their username, last 30 day score, and all time score.~~
+
+The users' images range in size from very small to very large.  Attempting to scale the images up or down to a uniform card size can cause significant image distortion.  Instead, the design and color scheme is based off of [Free Code Camp's](https://www.FreeCodeCamp.com) UI.  
+
+The API is called twice, once for each of the 2 JSONS (Top Most Recent and Top All Time), then populates the rows.
+
+
+## Tools and Libraries
+* React / JSX
+* whatwg-fetch
+

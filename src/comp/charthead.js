@@ -10,12 +10,12 @@ export default class Charthead extends Component {
 					<td>Camper Name</td>
 					<td
 						id='recent'
-						onClick={() => {this.props.callAPI(this.props.recent);} }
+						onClick={() => {this.props.makeRecent();} }
 						>Recent Score
 					</td>
 					<td
 						id='allTime'
-						onClick={() => {this.props.callAPI(this.props.allTime);} }
+						onClick={() => {this.props.makeAllTime();} }
 						>All Time Score
 					</td>
 				</tr>
@@ -24,7 +24,6 @@ export default class Charthead extends Component {
 	}
 }
 Charthead.propTypes = {
-	allTime: React.PropTypes.string,
-	callAPI: React.PropTypes.func.isRequired,
-	recent: React.PropTypes.string
+	makeAllTime: React.PropTypes.function,
+	makeRecent: React.PropTypes.function
 };
