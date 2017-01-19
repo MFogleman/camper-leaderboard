@@ -24,6 +24,6 @@ export default class Charthead extends Component {
 	}
 }
 Charthead.propTypes = {
-	makeAllTime: React.PropTypes.function,
-	makeRecent: React.PropTypes.function
+	makeAllTime: React.PropTypes.func,
+	makeRecent: React.PropTypes.func
 };
